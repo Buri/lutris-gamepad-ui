@@ -8,11 +8,25 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Reference",
+"class": "UIStackItem",
+"language": "GDScript",
+"path": "res://Behaviours/UIStack/UIStackItem.gd"
+} ]
+_global_script_class_icons={
+"UIStackItem": ""
+}
+
 [application]
 
 config/name="Lutris-gamepad-ui"
 run/main_scene="res://Root.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+UiStack="*res://Behaviours/UIStack/UIStack.gd"
 
 [physics]
 

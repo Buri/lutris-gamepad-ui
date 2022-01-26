@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://MenuButton.gd" type="Script" id=1]
 [ext_resource path="res://GamesPanel.gd" type="Script" id=2]
+[ext_resource path="res://Root.gd" type="Script" id=3]
 
 [node name="Root" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -60,9 +62,10 @@ __meta__ = {
 [node name="Tabs" type="Tabs" parent="VBoxContainer/TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 40.0
-margin_right = -8.0
-margin_bottom = 28.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
 script = ExtResource( 2 )
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TabContainer/Tabs"]
@@ -78,7 +81,7 @@ __meta__ = {
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/Tabs/ScrollContainer"]
 margin_right = 1017.0
-margin_bottom = 555.0
+margin_bottom = 531.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 5
@@ -87,6 +90,7 @@ __meta__ = {
 }
 
 [node name="Tabs2" type="Tabs" parent="VBoxContainer/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -115,6 +119,7 @@ __meta__ = {
 }
 
 [node name="Tabs3" type="Tabs" parent="VBoxContainer/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0

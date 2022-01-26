@@ -18,17 +18,21 @@ func _ready():
 		var item = Button.new()
 		item.text = game.name
 		item.rect_min_size = Vector2(160, 90)
-		item.connect("button_up", self, "show_game_details", [game])
+		item.connect("button_up", self, "show_game_details", [game, item])
 		gc.add_child(item)
 	var child = gc.get_child(0) as Button
 	child.grab_focus()
 
-func show_game_details(game):
+func show_game_details(game, sender):
 	var instance = GameDetailPanel.instance()
 	instance.GAME_NAME = game.name
+	instance.visible = false
 	instance.connect("action_close", self, "on_action_close", [instance])
 	add_child(instance)
+	UiStack.set_focus(sender)
+	UiStack.create(instance)
 
 func on_action_close(instance):
 	# TODO: Implement UI stack so closing modals/going backwards works properly
-	instance.queue_free()
+	#instance.queue_free()
+	UiStack.close()
