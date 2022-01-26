@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://PanelControler.gd" type="Script" id=1]
+[ext_resource path="res://MenuButton.gd" type="Script" id=1]
 [ext_resource path="res://GamesPanel.gd" type="Script" id=2]
 
 [node name="Root" type="Control"]
@@ -27,69 +27,58 @@ size_flags_horizontal = 3
 color = Color( 0.529412, 0.286275, 0.286275, 1 )
 
 [node name="Label" type="Label" parent="VBoxContainer/ColorRect"]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_left = 15.0
+margin_top = 8.0
+margin_right = 111.0
+margin_bottom = 22.0
 text = "Lutris GUI Test"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 34.0
-margin_right = 1024.0
-margin_bottom = 54.0
-
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_right = 57.0
-margin_bottom = 20.0
-focus_neighbour_right = NodePath("../Button2")
-text = "Games"
-
-[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 61.0
-margin_right = 117.0
-margin_bottom = 20.0
-focus_neighbour_left = NodePath("../Button")
-focus_neighbour_right = NodePath("../Button3")
-text = "Recent"
-
-[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 121.0
-margin_right = 191.0
-margin_bottom = 20.0
-text = "Favorites"
-
-[node name="PanelControler" type="PanelContainer" parent="VBoxContainer"]
-margin_top = 58.0
-margin_right = 1024.0
-margin_bottom = 600.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="MenuButton" type="MenuButton" parent="VBoxContainer/ColorRect"]
+margin_left = 921.0
+margin_top = 4.0
+margin_right = 1014.0
+margin_bottom = 24.0
+text = "Filters/Menu"
 script = ExtResource( 1 )
-
-[node name="GamesPanel" type="Panel" parent="VBoxContainer/PanelControler"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 1017.0
-margin_bottom = 535.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-script = ExtResource( 2 )
-
-[node name="Label" type="Label" parent="VBoxContainer/PanelControler/GamesPanel"]
-margin_right = 40.0
-margin_bottom = 14.0
-text = "Games
-"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer/PanelControler/GamesPanel"]
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
+margin_top = 34.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tabs" type="Tabs" parent="VBoxContainer/TabContainer"]
 anchor_right = 1.0
-anchor_bottom = 1.008
-margin_right = -2.0
-margin_bottom = -0.223999
+anchor_bottom = 1.0
+margin_top = 40.0
+margin_right = -8.0
+margin_bottom = 28.0
+script = ExtResource( 2 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TabContainer/Tabs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1.0
+margin_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/Tabs/ScrollContainer"]
+margin_right = 1017.0
+margin_bottom = 555.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 5
@@ -97,16 +86,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RecentPanel" type="Panel" parent="VBoxContainer/PanelControler"]
+[node name="Tabs2" type="Tabs" parent="VBoxContainer/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="RecentPanel" type="Panel" parent="VBoxContainer/TabContainer/Tabs2"]
 visible = false
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 1017.0
-margin_bottom = 535.0
+margin_left = 3.0
+margin_top = 39.0
+margin_right = 1013.0
+margin_bottom = 567.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label" type="Label" parent="VBoxContainer/PanelControler/RecentPanel"]
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Tabs2/RecentPanel"]
 margin_right = 40.0
 margin_bottom = 14.0
 text = "Recent"
@@ -114,16 +114,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FavoritesPanel" type="Panel" parent="VBoxContainer/PanelControler"]
+[node name="Tabs3" type="Tabs" parent="VBoxContainer/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="FavoritesPanel" type="Panel" parent="VBoxContainer/TabContainer/Tabs3"]
 visible = false
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 1017.0
-margin_bottom = 535.0
+margin_left = 3.0
+margin_top = 39.0
+margin_right = 1013.0
+margin_bottom = 567.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/PanelControler/FavoritesPanel"]
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Tabs3/FavoritesPanel"]
 margin_right = 40.0
 margin_bottom = 14.0
 text = "Favorites"
@@ -131,6 +139,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="button_up" from="VBoxContainer/HBoxContainer/Button" to="VBoxContainer/PanelControler" method="_on_Button_button_up"]
-[connection signal="button_up" from="VBoxContainer/HBoxContainer/Button2" to="VBoxContainer/PanelControler" method="_on_Button2_button_up"]
-[connection signal="button_up" from="VBoxContainer/HBoxContainer/Button3" to="VBoxContainer/PanelControler" method="_on_Button3_button_up"]
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_left = 308.0
+margin_top = 3.0
+margin_right = 789.0
+margin_bottom = 27.0
+text = "TODO: Search here with OSK"
