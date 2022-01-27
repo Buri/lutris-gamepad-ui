@@ -22,11 +22,21 @@ _global_script_class_icons={
 
 config/name="Lutris-gamepad-ui"
 run/main_scene="res://Root.tscn"
+run/low_processor_mode=true
 config/icon="res://icon.png"
+
+[audio]
+
+default_clear_color=Color( 1, 1, 1, 1 )
 
 [autoload]
 
 UiStack="*res://Behaviours/UIStack/UIStack.gd"
+
+[display]
+
+window/size/width=1280
+window/size/height=800
 
 [input]
 
@@ -66,4 +76,7 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+quality/driver/fallback_to_gles2=true
+quality/intended_usage/framebuffer_allocation=0
+environment/default_clear_color=Color( 1, 1, 1, 1 )
 environment/default_environment="res://default_env.tres"
