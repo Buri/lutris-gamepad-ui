@@ -3,14 +3,25 @@ on:
   push:
     branches:
       - master
+
+env:
+  GODOT_VERSION: 3.4.2
+
 jobs:
   github-pages:
     name: Build Github Pages
     runs-on: ubuntu-latest
-    container: barichello/godot-ci:3.4.2
+    container:
+      image: barichello/godot-ci:3.4.2
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
+        with:
+          lfs: true
+      - name: Setup
+        run: |
+          mkdir -v -p ~/.local/share/godot/templates
+          mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
       - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
         run: |
           godot --export HTML5 ./build/index.html
@@ -19,6 +30,9 @@ jobs:
           mkdir -v -p build/web
           cd $EXPORT_NAME
           godot -v --export "HTML5" ../build/web/index.html
+      - name: Install rsync 📚
+        run: |
+          apt-get update && apt-get install -y rsync
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.2.2
         with:
