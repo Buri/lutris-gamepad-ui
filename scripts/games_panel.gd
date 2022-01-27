@@ -31,6 +31,7 @@ func _physics_process(_delta):
 		gc.columns = cols
 
 func show_game_details(game):
+	UiStack.close()
 	var instance = GameDetailPanel.instance()
 	instance.GAME_NAME = game.name
 	instance.visible = false
