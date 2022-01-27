@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "UIStackItem",
 "language": "GDScript",
-"path": "res://Behaviours/UIStack/UIStackItem.gd"
+"path": "res://scripts/behaviours/UIStack/UIStackItem.gd"
 } ]
 _global_script_class_icons={
 "UIStackItem": ""
@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Lutris-gamepad-ui"
-run/main_scene="res://Root.tscn"
+run/main_scene="res://components/root.tscn"
 run/low_processor_mode=true
 config/icon="res://icon.png"
 
@@ -31,7 +31,7 @@ default_clear_color=Color( 1, 1, 1, 1 )
 
 [autoload]
 
-UiStack="*res://Behaviours/UIStack/UIStack.gd"
+UiStack="*res://scripts/behaviours/UIStack/UIStack.gd"
 
 [display]
 

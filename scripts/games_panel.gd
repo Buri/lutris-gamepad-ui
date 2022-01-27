@@ -7,7 +7,7 @@ var GAMELIST = [
 ]
 
 
-var GameDetailPanel = preload("res://Elements/GameDetail/GameDetail.tscn")
+var GameDetailPanel = preload("res://components/game_detail/game_detail.tscn")
 export var open_in_container: NodePath
 onready var gc = $ScrollContainer/GridContainer
 
