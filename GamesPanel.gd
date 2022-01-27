@@ -22,6 +22,7 @@ func _ready():
 		item.connect("focus_entered", self, "scroll_to_view", [item])
 		gc.add_child(item)
 	call_deferred("reset_focus")
+	call_deferred("register_on_active")
 	
 func _physics_process(_delta):
 	var cols = floor(rect_size.x / 164)
@@ -36,6 +37,15 @@ func show_game_details(game):
 	add_child(instance)
 	UiStack.create(instance)
 
+func register_on_active():
+	if UiStack.current() != null:
+		UiStack.current().connect("become_active", self, "on_become_active")
+
+
+func on_become_active(si: UIStackItem):
+	print("become active", si)
+	scroll_to_view(si.focused_element)
+
 func on_action_close(instance):
 	# TODO: Implement UI stack so closing modals/going backwards works properly
 	#instance.queue_free()
@@ -44,6 +54,7 @@ func on_action_close(instance):
 func scroll_to_view(control):
 	UiStack.set_focus(control)
 	$ScrollContainer.ensure_control_visible(control)
+	control.grab_focus()
 
 func reset_focus():
 	var child = gc.get_child(0)

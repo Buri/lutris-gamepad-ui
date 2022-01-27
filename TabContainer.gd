@@ -6,7 +6,7 @@ func _unhandled_input(event):
 		if current_tab + 1 < get_child_count():
 			current_tab += 1
 			handled = true
-	if event.is_action("ui_tab_prev"):
+	if event.is_action_pressed("ui_tab_prev"):
 		if current_tab > 0:
 			current_tab -= 1
 			handled = true
