@@ -22,5 +22,5 @@ func show_menu_panel():
 		UiStack.close()
 
 
-func _on_MenuButton2_pressed():
+func _on_MenuButton_pressed():
 	show_menu_panel()

@@ -1,6 +1,5 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://MenuButton.gd" type="Script" id=1]
 [ext_resource path="res://GamesPanel.gd" type="Script" id=2]
 [ext_resource path="res://Root.gd" type="Script" id=3]
 [ext_resource path="res://TabContainer.gd" type="Script" id=4]
@@ -79,27 +78,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MenuButton" type="MenuButton" parent="VBoxContainer/HeaderBar"]
+[node name="MenuButton" type="Button" parent="VBoxContainer/HeaderBar"]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -93.0
 size_flags_horizontal = 9
-text = "Filters/Menu"
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MenuButton2" type="Button" parent="VBoxContainer/ColorRect"]
-margin_left = 819.0
-margin_top = 4.0
-margin_right = 912.0
-margin_bottom = 24.0
 text = "Menu"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
 margin_top = 52.0
@@ -131,6 +116,8 @@ __meta__ = {
 }
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/GamesTab/ScrollContainer"]
+margin_right = 1281.0
+margin_bottom = 725.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -144,10 +131,7 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_top = 24.0
 
 [node name="Label" type="Label" parent="VBoxContainer/TabContainer/RecentTab"]
 margin_left = 3.0
@@ -163,10 +147,7 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_top = 24.0
 
 [node name="Label" type="Label" parent="VBoxContainer/TabContainer/FavoritesTab"]
 margin_left = 3.0
@@ -178,19 +159,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextEdit" type="TextEdit" parent="."]
-margin_left = 308.0
-margin_top = 3.0
-margin_right = 789.0
-margin_bottom = 27.0
-text = "TODO: Search here with OSK"
-
 [node name="TmpHelpPanel" type="Panel" parent="."]
 margin_left = 124.0
 margin_top = 2.0
 margin_right = 301.0
 margin_bottom = 132.0
 custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="RichTextLabel" type="RichTextLabel" parent="TmpHelpPanel"]
 margin_left = 7.0
@@ -206,4 +183,4 @@ Delete: Main menu
 This box will be replaced with icons"
 fit_content_height = true
 
-[connection signal="pressed" from="VBoxContainer/ColorRect/MenuButton2" to="." method="_on_MenuButton2_pressed"]
+[connection signal="pressed" from="VBoxContainer/HeaderBar/MenuButton" to="." method="_on_MenuButton_pressed"]
