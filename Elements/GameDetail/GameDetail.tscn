@@ -11,6 +11,8 @@ bg_color = Color( 0.945098, 0.909804, 0.909804, 1 )
 [node name="GameDetail" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -78,4 +80,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="button_up" from="HBoxContainer/Panel/Button2" to="." method="_on_Button2_button_up"]
+[connection signal="pressed" from="HBoxContainer/Panel/Button2" to="." method="_on_Button2_button_up"]

@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	UiStack.create($VBoxContainer/TabContainer/GamesTab/ScrollContainer)
+	UiStack.create($VBoxContainer/TabContainer)
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):

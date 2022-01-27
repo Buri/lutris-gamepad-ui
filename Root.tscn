@@ -59,6 +59,9 @@ margin_top = 4.0
 margin_right = 912.0
 margin_bottom = 24.0
 text = "Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
 margin_top = 34.0
@@ -79,6 +82,7 @@ margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
 script = ExtResource( 2 )
+open_in_container = NodePath("../..")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TabContainer/GamesTab"]
 anchor_right = 1.0

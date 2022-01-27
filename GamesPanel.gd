@@ -8,17 +8,18 @@ var GAMELIST = [
 
 
 var GameDetailPanel = preload("res://Elements/GameDetail/GameDetail.tscn")
+export var open_in_container: NodePath
 onready var gc = $ScrollContainer/GridContainer
 
 func _ready():
 	# TODO: Calculate number of columns based on the width of viewport
-	for i in range(100):
+	for i in range(500):
 		var game = {"name": "Game %s" % (i)}
 		print(game)
 		var item = Button.new()
 		item.text = game.name
 		item.rect_min_size = Vector2(160, 90)
-		item.connect("button_up", self, "show_game_details", [game])
+		item.connect("pressed", self, "show_game_details", [game])
 		item.connect("focus_entered", self, "scroll_to_view", [item])
 		gc.add_child(item)
 	call_deferred("reset_focus")
@@ -34,7 +35,7 @@ func show_game_details(game):
 	instance.GAME_NAME = game.name
 	instance.visible = false
 	instance.connect("action_close", self, "on_action_close", [instance])
-	add_child(instance)
+	get_node(open_in_container).add_child(instance)
 	UiStack.create(instance)
 
 func register_on_active():
