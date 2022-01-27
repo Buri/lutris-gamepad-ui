@@ -1,9 +1,10 @@
 extends Node
 var stack = []
 
-func create(elem: Node):
+func create(elem: Node, focus: Node = null):
 	var item = UIStackItem.new()
 	item.control = elem
+	item.focused_element = focus
 	open(item)
 	
 func open(item: UIStackItem):
@@ -32,3 +33,6 @@ func close():
 func set_focus(elem):
 	var current = stack.back() as UIStackItem
 	current.focused_element = elem
+
+func current() -> UIStackItem:
+	return stack.back()

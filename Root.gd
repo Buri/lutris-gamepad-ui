@@ -1,6 +1,8 @@
 extends Control
 
 func _ready():
-	var this = UIStackItem.new()
-	this.control = $VBoxContainer/TabContainer/Tabs/ScrollContainer
-	UiStack.open(this)
+	UiStack.create($VBoxContainer/TabContainer/Tabs/ScrollContainer)
+
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		UiStack.close()
