@@ -7,6 +7,9 @@
 [ext_resource path="res://lutris48.png" type="Texture" id=5]
 [ext_resource path="res://LutrisTheme.tres" type="Theme" id=6]
 
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.290196, 0.27451, 0.27451, 0.545098 )
+
 [node name="Root" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -88,6 +91,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="MenuButton2" type="Button" parent="VBoxContainer/ColorRect"]
+margin_left = 819.0
+margin_top = 4.0
+margin_right = 912.0
+margin_bottom = 24.0
+text = "Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
 margin_top = 52.0
 margin_right = 1280.0
@@ -99,13 +112,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Tabs" type="Tabs" parent="VBoxContainer/TabContainer"]
+[node name="GamesTab" type="Tabs" parent="VBoxContainer/TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 24.0
 script = ExtResource( 2 )
+open_in_container = NodePath("../..")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TabContainer/Tabs"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TabContainer/GamesTab"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 1.0
@@ -116,9 +130,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/Tabs/ScrollContainer"]
-margin_right = 1281.0
-margin_bottom = 725.0
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/GamesTab/ScrollContainer"]
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -128,7 +140,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Tabs2" type="Tabs" parent="VBoxContainer/TabContainer"]
+[node name="RecentTab" type="Tabs" parent="VBoxContainer/TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -137,27 +149,17 @@ margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="RecentPanel" type="Panel" parent="VBoxContainer/TabContainer/Tabs2"]
-visible = false
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/RecentTab"]
 margin_left = 3.0
 margin_top = 39.0
-margin_right = 1013.0
-margin_bottom = 567.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Tabs2/RecentPanel"]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_right = 47.0
+margin_bottom = 53.0
 text = "Recent"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Tabs3" type="Tabs" parent="VBoxContainer/TabContainer"]
+[node name="FavoritesTab" type="Tabs" parent="VBoxContainer/TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -166,19 +168,42 @@ margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="FavoritesPanel" type="Panel" parent="VBoxContainer/TabContainer/Tabs3"]
-visible = false
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/FavoritesTab"]
 margin_left = 3.0
 margin_top = 39.0
-margin_right = 1013.0
-margin_bottom = 567.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Tabs3/FavoritesPanel"]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_right = 61.0
+margin_bottom = 53.0
 text = "Favorites"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_left = 308.0
+margin_top = 3.0
+margin_right = 789.0
+margin_bottom = 27.0
+text = "TODO: Search here with OSK"
+
+[node name="TmpHelpPanel" type="Panel" parent="."]
+margin_left = 124.0
+margin_top = 2.0
+margin_right = 301.0
+margin_bottom = 132.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TmpHelpPanel"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 180.0
+margin_bottom = 115.0
+text = "Keyboard:
+Arrows: move selection
+Q/E: Previous/Next tab
+Enter/Space: Select
+Escape: Go back
+Delete: Main menu
+This box will be replaced with icons"
+fit_content_height = true
+
+[connection signal="pressed" from="VBoxContainer/ColorRect/MenuButton2" to="." method="_on_MenuButton2_pressed"]
