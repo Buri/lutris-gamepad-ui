@@ -4,7 +4,7 @@
 [ext_resource path="res://Root.gd" type="Script" id=3]
 [ext_resource path="res://TabContainer.gd" type="Script" id=4]
 [ext_resource path="res://lutris48.png" type="Texture" id=5]
-[ext_resource path="res://LutrisTheme.tres" type="Theme" id=6]
+[ext_resource path="res://LutrisThemeLight.tres" type="Theme" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.290196, 0.27451, 0.27451, 0.545098 )
@@ -82,9 +82,12 @@ __meta__ = {
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -93.0
+margin_left = -48.0
 size_flags_horizontal = 9
 text = "Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
 margin_top = 52.0
@@ -100,7 +103,7 @@ __meta__ = {
 [node name="GamesTab" type="Tabs" parent="VBoxContainer/TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 24.0
+margin_top = 30.0
 script = ExtResource( 2 )
 open_in_container = NodePath("../..")
 
@@ -117,7 +120,7 @@ __meta__ = {
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/GamesTab/ScrollContainer"]
 margin_right = 1281.0
-margin_bottom = 725.0
+margin_bottom = 719.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -131,7 +134,7 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 24.0
+margin_top = 30.0
 
 [node name="Label" type="Label" parent="VBoxContainer/TabContainer/RecentTab"]
 margin_left = 3.0
@@ -147,7 +150,7 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 24.0
+margin_top = 30.0
 
 [node name="Label" type="Label" parent="VBoxContainer/TabContainer/FavoritesTab"]
 margin_left = 3.0
