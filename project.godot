@@ -28,6 +28,11 @@ config/icon="res://icon.png"
 
 UiStack="*res://Behaviours/UIStack/UIStack.gd"
 
+[display]
+
+window/size/width=1280
+window/size/height=800
+
 [input]
 
 ui_focus_next={
