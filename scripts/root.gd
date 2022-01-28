@@ -10,7 +10,7 @@ func _unhandled_input(event):
 		show_menu_panel()
 
 func show_menu_panel():
-	var panelScene = preload("res://Elements/MenuPanel/MenuPanel.tscn")
+	var panelScene = preload("res://components/menu_panel/menu_panel.tscn")
 	var panel = panelScene.instance()
 	if get_node_or_null("MenuPanel") == null:
 		panel.anchor_left = 0.8

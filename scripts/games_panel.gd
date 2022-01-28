@@ -7,7 +7,7 @@ var GAMELIST = [
 ]
 
 
-var GameDetailPanel = preload("res://Elements/GameDetail/GameDetail.tscn")
+var GameDetailPanel = preload("res://components/game_detail/game_detail.tscn")
 export var open_in_container: NodePath
 onready var gc = $ScrollContainer/GridContainer
 
@@ -31,6 +31,7 @@ func _physics_process(_delta):
 		gc.columns = cols
 
 func show_game_details(game):
+	UiStack.close()
 	var instance = GameDetailPanel.instance()
 	instance.GAME_NAME = game.name
 	instance.visible = false
