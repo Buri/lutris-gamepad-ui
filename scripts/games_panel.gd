@@ -9,6 +9,7 @@ var GAMELIST = [
 const GAMEBUTTONSIZE = Vector2(240, 120)
 
 var GameDetailPanel = preload("res://components/game_detail/game_detail.tscn")
+var GameButton = preload("res://components/game_button/game_button.tscn")
 export var open_in_container: NodePath
 onready var gc = $ScrollContainer/GridContainer
 
@@ -17,8 +18,8 @@ func _ready():
 	for i in range(500):
 		var game = {"name": "Game %s" % (i)}
 		print(game)
-		var item = Button.new()
-		item.text = game.name
+		var item = GameButton.instance()
+		item.game_name = game.name
 		item.rect_min_size = GAMEBUTTONSIZE
 		item.connect("pressed", self, "show_game_details", [game])
 		item.connect("focus_entered", self, "scroll_to_view", [item])
