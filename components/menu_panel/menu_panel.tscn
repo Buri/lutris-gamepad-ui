@@ -30,19 +30,22 @@ __meta__ = {
 
 [node name="Button" type="Button" parent="Panel/VBoxContainer"]
 margin_right = 320.0
-margin_bottom = 16.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
 text = "Settings"
 
 [node name="Button2" type="Button" parent="Panel/VBoxContainer"]
-margin_top = 20.0
+margin_top = 44.0
 margin_right = 320.0
-margin_bottom = 36.0
+margin_bottom = 84.0
+rect_min_size = Vector2( 0, 40 )
 text = "About"
 
 [node name="ButtonExit" type="Button" parent="Panel/VBoxContainer"]
-margin_top = 40.0
+margin_top = 88.0
 margin_right = 320.0
-margin_bottom = 56.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 0, 40 )
 text = "Exit"
 
 [connection signal="pressed" from="Panel/VBoxContainer/ButtonExit" to="." method="_on_ButtonExit_pressed"]
