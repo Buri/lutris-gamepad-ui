@@ -14,7 +14,7 @@ func show_menu_panel():
 	var panel = panelScene.instance()
 	if get_node_or_null("MenuPanel") == null:
 		panel.margin_left = -320
-		panel.margin_top = 48
+		panel.margin_top = 64
 		panel.anchor_left = 1
 		panel.anchor_right = 1
 		panel.anchor_bottom = 1

@@ -29,8 +29,8 @@ __meta__ = {
 
 [node name="HeaderBar" type="Control" parent="VBoxContainer"]
 margin_right = 1280.0
-margin_bottom = 48.0
-rect_min_size = Vector2( 0, 48 )
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 64 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -38,8 +38,7 @@ __meta__ = {
 [node name="HeaderColorRect" type="ColorRect" parent="VBoxContainer/HeaderBar"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = -52.0
-rect_min_size = Vector2( 0, 48 )
+rect_min_size = Vector2( 0, 64 )
 size_flags_horizontal = 3
 color = Color( 1, 0.501961, 0, 1 )
 __meta__ = {
@@ -56,10 +55,10 @@ __meta__ = {
 
 [node name="SearchLineEdit" type="LineEdit" parent="VBoxContainer/HeaderBar/CenterContainer"]
 margin_left = 240.0
-margin_top = 8.0
+margin_top = 12.0
 margin_right = 1040.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 800, 32 )
+margin_bottom = 52.0
+rect_min_size = Vector2( 800, 40 )
 size_flags_horizontal = 3
 align = 1
 placeholder_text = "Search"
@@ -68,11 +67,11 @@ __meta__ = {
 }
 
 [node name="LutrisButton" type="TextureButton" parent="VBoxContainer/HeaderBar"]
-margin_left = 8.0
-margin_top = 8.0
-margin_right = 54.0
-margin_bottom = 54.0
-rect_scale = Vector2( 0.5, 0.5 )
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 76.0
+margin_bottom = 76.0
+rect_scale = Vector2( 0.625, 0.625 )
 texture_normal = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -82,7 +81,10 @@ __meta__ = {
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -48.0
+margin_left = -52.0
+margin_top = 12.0
+margin_right = -12.0
+margin_bottom = -12.0
 size_flags_horizontal = 9
 text = "Menu"
 __meta__ = {
@@ -90,7 +92,7 @@ __meta__ = {
 }
 
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
-margin_top = 52.0
+margin_top = 68.0
 margin_right = 1280.0
 margin_bottom = 800.0
 size_flags_horizontal = 3
@@ -103,7 +105,7 @@ __meta__ = {
 [node name="GamesTab" type="Tabs" parent="VBoxContainer/TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 30.0
+margin_top = 38.0
 script = ExtResource( 4 )
 open_in_container = NodePath("../..")
 
@@ -120,7 +122,7 @@ __meta__ = {
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/GamesTab/ScrollContainer"]
 margin_right = 1281.0
-margin_bottom = 719.0
+margin_bottom = 695.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
