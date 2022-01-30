@@ -28,23 +28,36 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="Panel/VBoxContainer"]
+[node name="ButtonSettings" type="Button" parent="Panel/VBoxContainer"]
 margin_right = 240.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 text = "Settings"
 
-[node name="Button2" type="Button" parent="Panel/VBoxContainer"]
+[node name="ButtonAbout" type="Button" parent="Panel/VBoxContainer"]
 margin_top = 44.0
 margin_right = 240.0
 margin_bottom = 84.0
 rect_min_size = Vector2( 0, 40 )
 text = "About"
 
-[node name="ButtonExit" type="Button" parent="Panel/VBoxContainer"]
+[node name="VerticalExpander1" type="Control" parent="Panel/VBoxContainer"]
 margin_top = 88.0
 margin_right = 240.0
-margin_bottom = 128.0
+margin_bottom = 552.0
+size_flags_vertical = 3
+
+[node name="ButtonDesktop" type="Button" parent="Panel/VBoxContainer"]
+margin_top = 556.0
+margin_right = 240.0
+margin_bottom = 596.0
+rect_min_size = Vector2( 0, 40 )
+text = "Open Lutris Desktop"
+
+[node name="ButtonExit" type="Button" parent="Panel/VBoxContainer"]
+margin_top = 600.0
+margin_right = 240.0
+margin_bottom = 640.0
 rect_min_size = Vector2( 0, 40 )
 text = "Exit"
 
