@@ -102,8 +102,6 @@ open_in_container = NodePath("../..")
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TabContainer/GamesTab"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 1.0
-margin_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -111,8 +109,8 @@ __meta__ = {
 }
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/GamesTab/ScrollContainer"]
-margin_right = 1281.0
-margin_bottom = 695.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
