@@ -6,6 +6,7 @@ var GAMELIST = [
 	{ "name": "Game three" },
 ]
 
+const GAMEBUTTONSIZE = Vector2(240, 120)
 
 var GameDetailPanel = preload("res://components/game_detail/game_detail.tscn")
 export var open_in_container: NodePath
@@ -18,7 +19,7 @@ func _ready():
 		print(game)
 		var item = Button.new()
 		item.text = game.name
-		item.rect_min_size = Vector2(160, 90)
+		item.rect_min_size = GAMEBUTTONSIZE
 		item.connect("pressed", self, "show_game_details", [game])
 		item.connect("focus_entered", self, "scroll_to_view", [item])
 		gc.add_child(item)
@@ -26,9 +27,17 @@ func _ready():
 	call_deferred("register_on_active")
 	
 func _physics_process(_delta):
-	var cols = floor(rect_size.x / 164)
+	var cols = floor(rect_size.x / GAMEBUTTONSIZE.x)
+	if int(rect_size.x) % int(GAMEBUTTONSIZE.x) == 0:
+		cols -= 1  # prevent no space between buttons
 	if gc.columns != cols:
 		gc.columns = cols
+	
+	var separation = (rect_size.x - GAMEBUTTONSIZE.x * cols) / (cols + 1)
+	gc.margin_top = separation
+	gc.margin_left = separation
+	gc.add_constant_override("hseparation", separation)
+	gc.add_constant_override("vseparation", separation)
 
 func show_game_details(game):
 	UiStack.close()
