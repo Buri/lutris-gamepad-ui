@@ -23,7 +23,7 @@ _global_script_class_icons={
 config/name="Lutris-gamepad-ui"
 run/main_scene="res://components/root/root.tscn"
 run/low_processor_mode=true
-config/icon="res://icon.png"
+config/icon="res://resources/img/lutris_logo.svg"
 
 [audio]
 
