@@ -13,8 +13,11 @@ func show_menu_panel():
 	var panelScene = preload("res://components/menu_panel/menu_panel.tscn")
 	var panel = panelScene.instance()
 	if get_node_or_null("MenuPanel") == null:
-		panel.anchor_left = 0.8
-		panel.anchor_top = 0.05
+		panel.margin_left = -320
+		panel.margin_top = 48
+		panel.anchor_left = 1
+		panel.anchor_right = 1
+		panel.anchor_bottom = 1
 		add_child(panel)
 		UiStack.create(panel, panel.get_node("Panel/VBoxContainer/Button"), false)
 	else:
