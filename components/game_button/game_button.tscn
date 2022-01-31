@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://resources/theme/lutris_theme_light.tres" type="Theme" id=1]
 [ext_resource path="res://components/game_button/game_button.gd" type="Script" id=2]
 [ext_resource path="res://components/game_button/focus_shader.tres" type="Material" id=3]
+[ext_resource path="res://components/game_button/game_button_theme.tres" type="Theme" id=4]
 
 [node name="GameButton" type="Control"]
 material = ExtResource( 3 )
@@ -65,6 +66,7 @@ margin_top = -40.0
 margin_right = -8.0
 margin_bottom = -8.0
 focus_mode = 1
+theme = ExtResource( 4 )
 text = "Play"
 __meta__ = {
 "_edit_use_anchors_": false
