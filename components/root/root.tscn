@@ -176,3 +176,4 @@ This box will be replaced with icons"
 fit_content_height = true
 
 [connection signal="pressed" from="VBoxContainer/HeaderBar/MenuButton" to="." method="_on_MenuButton_pressed"]
+[connection signal="resized" from="VBoxContainer/TabContainer/GamesTab" to="VBoxContainer/TabContainer/GamesTab" method="_on_scroll_complete"]

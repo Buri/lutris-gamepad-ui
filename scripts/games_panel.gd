@@ -26,7 +26,9 @@ func _ready():
 	call_deferred("reset_focus")
 	call_deferred("register_on_active")
 	
-func _physics_process(_delta):
+func _on_scroll_complete():
+	if gc == null:
+		return
 	var cols = floor(rect_size.x / GAMEBUTTONSIZE.x)
 	if int(rect_size.x) % int(GAMEBUTTONSIZE.x) == 0:
 		cols -= 1  # prevent no space between buttons
