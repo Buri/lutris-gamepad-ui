@@ -6,3 +6,6 @@ signal become_active
 
 func set_focused_element(element):
 	focused_element = element
+
+func activate():
+	emit_signal("become_active", self)

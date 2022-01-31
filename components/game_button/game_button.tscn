@@ -1,13 +1,25 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://resources/theme/lutris_theme_light.tres" type="Theme" id=1]
 [ext_resource path="res://components/game_button/game_button.gd" type="Script" id=2]
+[ext_resource path="res://components/game_button/focus_shader.tres" type="Material" id=3]
 
 [node name="GameButton" type="Control"]
+material = ExtResource( 3 )
 margin_right = 240.0
 margin_bottom = 120.0
+focus_mode = 2
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+highlightColor = Color( 0.827451, 0.713726, 0.105882, 0.760784 )
+
+[node name="FocusHightlight" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -15,6 +27,7 @@ __meta__ = {
 [node name="ButtonBanner" type="TextureButton" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+focus_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -28,6 +41,7 @@ margin_left = -128.0
 margin_top = -40.0
 margin_right = -96.0
 margin_bottom = -8.0
+focus_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -50,7 +64,12 @@ margin_left = -88.0
 margin_top = -40.0
 margin_right = -8.0
 margin_bottom = -8.0
+focus_mode = 1
 text = "Play"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[connection signal="focus_entered" from="ButtonPlay" to="." method="_on_focused"]
+[connection signal="focus_exited" from="ButtonPlay" to="." method="_on_unfocused"]
+[connection signal="pressed" from="ButtonPlay" to="." method="_on_ButtonPlay_pressed"]

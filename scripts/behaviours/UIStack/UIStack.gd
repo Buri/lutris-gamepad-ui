@@ -13,12 +13,11 @@ func open(item: UIStackItem, hide_previous = true):
 		if current.control != null:
 			current.control.visible = false
 	stack.append(item)
-	print(item)
 	if item.control != null:
 		item.control.visible = true
 	if item.focused_element != null:
 		item.focused_element.grab_focus()
-	item.emit_signal("become_active", item)
+	item.activate()
 
 func close(hide = false):
 	# cant close root UI
