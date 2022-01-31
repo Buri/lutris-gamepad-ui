@@ -6,6 +6,7 @@ func _ready():
 	UiStack.create($VBoxContainer/TabContainer)
 
 func _unhandled_input(event):
+	var changed_tab = false
 	if event.is_action_pressed("ui_cancel"):
 		UiStack.close()
 	if event.is_action_pressed("ui_menu"):
@@ -16,14 +17,17 @@ func _unhandled_input(event):
 			tabMain.current_tab += 1
 		else:
 			tabMain.current_tab = 0
+		changed_tab = true
 	if event.is_action_pressed("ui_tab_prev"):
 		if tabMain.current_tab > 0:
 			tabMain.current_tab -= 1
 		else:
 			tabMain.current_tab = tabMain.get_child_count() - 1
-	var tab_child = tabMain.get_child(tabMain.current_tab)
-	if tab_child.has_method("reset_focus"):
-		tab_child.reset_focus()
+		changed_tab = true
+	if changed_tab:
+		var tab_child = tabMain.get_child(tabMain.current_tab)
+		if tab_child.has_method("reset_focus"):
+			tab_child.reset_focus()
 
 func show_menu_panel():
 	var panelScene = preload("res://components/menu_panel/menu_panel.tscn")
@@ -35,7 +39,7 @@ func show_menu_panel():
 		panel.anchor_right = 1
 		panel.anchor_bottom = 1
 		add_child(panel)
-		UiStack.create(panel, panel.get_node("Panel/VBoxContainer/Button"), false)
+		UiStack.create(panel, panel.get_node("Panel/VBoxContainer/ButtonSettings"), false)
 	else:
 		# TODO: Keep closing until we find MenuPanel
 		UiStack.close()

@@ -32,6 +32,12 @@ __meta__ = {
 margin_right = 240.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
+focus_neighbour_left = NodePath("../ButtonExit")
+focus_neighbour_top = NodePath("../ButtonExit")
+focus_neighbour_right = NodePath("../ButtonAbout")
+focus_neighbour_bottom = NodePath("../ButtonAbout")
+focus_next = NodePath("../ButtonAbout")
+focus_previous = NodePath("../ButtonExit")
 text = "Settings"
 
 [node name="ButtonAbout" type="Button" parent="Panel/VBoxContainer"]
@@ -39,6 +45,12 @@ margin_top = 44.0
 margin_right = 240.0
 margin_bottom = 84.0
 rect_min_size = Vector2( 0, 40 )
+focus_neighbour_left = NodePath("../ButtonSettings")
+focus_neighbour_top = NodePath("../ButtonSettings")
+focus_neighbour_right = NodePath("../ButtonDesktop")
+focus_neighbour_bottom = NodePath("../ButtonDesktop")
+focus_next = NodePath("../ButtonDesktop")
+focus_previous = NodePath("../ButtonSettings")
 text = "About"
 
 [node name="VerticalExpander1" type="Control" parent="Panel/VBoxContainer"]
@@ -52,6 +64,12 @@ margin_top = 556.0
 margin_right = 240.0
 margin_bottom = 596.0
 rect_min_size = Vector2( 0, 40 )
+focus_neighbour_left = NodePath("../ButtonAbout")
+focus_neighbour_top = NodePath("../ButtonAbout")
+focus_neighbour_right = NodePath("../ButtonExit")
+focus_neighbour_bottom = NodePath("../ButtonExit")
+focus_next = NodePath("../ButtonExit")
+focus_previous = NodePath("../ButtonAbout")
 text = "Open Lutris Desktop"
 
 [node name="ButtonExit" type="Button" parent="Panel/VBoxContainer"]
@@ -59,6 +77,12 @@ margin_top = 600.0
 margin_right = 240.0
 margin_bottom = 640.0
 rect_min_size = Vector2( 0, 40 )
+focus_neighbour_left = NodePath("../ButtonDesktop")
+focus_neighbour_top = NodePath("../ButtonDesktop")
+focus_neighbour_right = NodePath("../ButtonSettings")
+focus_neighbour_bottom = NodePath("../ButtonSettings")
+focus_next = NodePath("../ButtonSettings")
+focus_previous = NodePath("../ButtonDesktop")
 text = "Exit"
 
 [connection signal="pressed" from="Panel/VBoxContainer/ButtonExit" to="." method="_on_ButtonExit_pressed"]

@@ -1,5 +1,6 @@
 extends Tabs
 
+# TODO: Pull game list from lutris
 var GAMELIST = [
 	{ "name": "Game one" },
 	{ "name": "Game two" },
@@ -14,14 +15,12 @@ export var open_in_container: NodePath
 onready var gc = $ScrollContainer/GridContainer
 
 func _ready():
-	# TODO: Calculate number of columns based on the width of viewport
 	for i in range(500):
 		var game = {"name": "Game %s" % (i)}
-		print(game)
 		var item = GameButton.instance()
 		item.game_name = game.name
 		item.rect_min_size = GAMEBUTTONSIZE
-		item.connect("pressed", self, "show_game_details", [game])
+		item.connect("select_game", self, "show_game_details", [game])
 		item.connect("focus_entered", self, "scroll_to_view", [item])
 		gc.add_child(item)
 	call_deferred("reset_focus")
@@ -58,17 +57,18 @@ func on_become_active(si: UIStackItem):
 	print("become active", si)
 	scroll_to_view(si.focused_element)
 
-func on_action_close(instance):
-	# TODO: Implement UI stack so closing modals/going backwards works properly
-	#instance.queue_free()
+func on_action_close(_instance):
 	UiStack.close()
 
 func scroll_to_view(control):
-	UiStack.set_focus(control)
-	$ScrollContainer.ensure_control_visible(control)
-	control.grab_focus()
+	print(control)
+	if control != null:
+		UiStack.set_focus(control)
+		$ScrollContainer.ensure_control_visible(control)
+		control.grab_focus()
 
 func reset_focus():
+	print("reset_focus")
 	var child = gc.get_child(0)
 	if UiStack.current() != null:
 		var focus = UiStack.current().focused_element

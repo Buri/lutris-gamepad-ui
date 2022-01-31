@@ -12,6 +12,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="FocusHightlight" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ButtonBanner" type="TextureButton" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -54,3 +62,7 @@ text = "Play"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[connection signal="focus_entered" from="ButtonPlay" to="." method="_on_focused"]
+[connection signal="focus_exited" from="ButtonPlay" to="." method="_on_unfocused"]
+[connection signal="pressed" from="ButtonPlay" to="." method="_on_ButtonPlay_pressed"]
