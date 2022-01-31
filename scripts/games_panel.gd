@@ -62,7 +62,6 @@ func on_action_close(_instance):
 	UiStack.close()
 
 func scroll_to_view(control):
-	print(control)
 	if control != null:
 		UiStack.set_focus(control)
 		$ScrollContainer.ensure_control_visible(control)
