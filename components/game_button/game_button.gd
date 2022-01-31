@@ -1,6 +1,9 @@
 extends Control
 
 signal select_game
+signal play_game
+signal select_launcher_icon
+
 var game_name: String setget set_game_name
 var is_active := false
 var textures = {}
@@ -65,7 +68,13 @@ func grab_focus():
 	$ButtonPlay.grab_focus()
 
 func _on_ButtonPlay_pressed():
+	emit_signal("play_game")
+
+func _on_ButtonBanner_pressed():
 	emit_signal("select_game")
+
+func _on_ButtonLauncherIcon_pressed():
+	emit_signal("select_launcher_icon")
 
 func _on_focused():
 	if get_index() != 0:

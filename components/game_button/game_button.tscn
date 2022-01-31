@@ -70,6 +70,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[connection signal="pressed" from="ButtonBanner" to="." method="_on_ButtonBanner_pressed"]
+[connection signal="pressed" from="ButtonLauncherIcon" to="." method="_on_ButtonLauncherIcon_pressed"]
 [connection signal="focus_entered" from="ButtonPlay" to="." method="_on_focused"]
 [connection signal="focus_exited" from="ButtonPlay" to="." method="_on_unfocused"]
 [connection signal="pressed" from="ButtonPlay" to="." method="_on_ButtonPlay_pressed"]
