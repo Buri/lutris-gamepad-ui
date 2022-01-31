@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://resources/theme/lutris_theme_light.tres" type="Theme" id=1]
+[ext_resource path="res://components/game_button/game_button.gd" type="Script" id=2]
+
+[node name="GameButton" type="Control"]
+margin_right = 240.0
+margin_bottom = 120.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonBanner" type="TextureButton" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonLauncherIcon" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -128.0
+margin_top = -40.0
+margin_right = -96.0
+margin_bottom = -8.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelGame" type="Label" parent="."]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 232.0
+margin_bottom = 22.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonPlay" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -88.0
+margin_top = -40.0
+margin_right = -8.0
+margin_bottom = -8.0
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -21,9 +21,9 @@ _global_script_class_icons={
 [application]
 
 config/name="Lutris-gamepad-ui"
-run/main_scene="res://components/root.tscn"
+run/main_scene="res://components/root/root.tscn"
 run/low_processor_mode=true
-config/icon="res://icon.png"
+config/icon="res://resources/img/lutris_logo.svg"
 
 [audio]
 
@@ -79,4 +79,3 @@ common/enable_pause_aware_picking=true
 quality/driver/fallback_to_gles2=true
 quality/intended_usage/framebuffer_allocation=0
 environment/default_clear_color=Color( 0.933333, 0.933333, 0.933333, 1 )
-environment/default_environment="res://default_env.tres"

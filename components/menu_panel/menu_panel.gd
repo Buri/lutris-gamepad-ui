@@ -1,5 +1,4 @@
-extends Button
-
+extends Control
 
 
 func _on_ButtonExit_pressed():
