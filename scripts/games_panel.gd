@@ -50,6 +50,7 @@ func show_game_details(game):
 
 func register_on_active():
 	if UiStack.current() != null:
+		# warning-ignore:return_value_discarded
 		UiStack.current().connect("become_active", self, "on_become_active")
 
 

@@ -6,6 +6,10 @@ func _ready():
 	UiStack.create($VBoxContainer/TabContainer)
 
 func _unhandled_input(event):
+	if event.is_action_pressed("ui_end"):
+		print(get_focus_owner())
+		print("End is near")
+	
 	var changed_tab = false
 	if event.is_action_pressed("ui_cancel"):
 		UiStack.close()
