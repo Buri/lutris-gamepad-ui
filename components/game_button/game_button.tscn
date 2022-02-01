@@ -1,26 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://resources/theme/lutris_theme_light.tres" type="Theme" id=1]
 [ext_resource path="res://components/game_button/game_button.gd" type="Script" id=2]
-[ext_resource path="res://components/game_button/focus_shader.tres" type="Material" id=3]
 [ext_resource path="res://components/game_button/game_button_theme.tres" type="Theme" id=4]
 
 [node name="GameButton" type="Control"]
-material = ExtResource( 3 )
 margin_right = 240.0
 margin_bottom = 120.0
 focus_mode = 2
-theme = ExtResource( 1 )
+theme = ExtResource( 4 )
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-highlightColor = Color( 0.827451, 0.713726, 0.105882, 0.760784 )
-
-[node name="FocusHightlight" type="ColorRect" parent="."]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -52,6 +40,9 @@ margin_left = 8.0
 margin_top = 8.0
 margin_right = 232.0
 margin_bottom = 22.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 1
+text = "Test"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -71,6 +62,12 @@ text = "Play"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="HighlightLine" type="Line2D" parent="."]
+visible = false
+points = PoolVector2Array( 1, 1, 239, 1, 239, 119, 1, 119, 1, 0 )
+width = 2.0
+default_color = Color( 1, 0.501961, 0, 1 )
 
 [connection signal="pressed" from="ButtonBanner" to="." method="_on_ButtonBanner_pressed"]
 [connection signal="pressed" from="ButtonLauncherIcon" to="." method="_on_ButtonLauncherIcon_pressed"]

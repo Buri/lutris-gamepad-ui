@@ -7,14 +7,11 @@ signal select_launcher_icon
 var game_name: String setget set_game_name
 var is_active := false
 var textures = {}
-onready var highlight = preload("res://components/game_button/focus_shader.tres")
-export var highlightColor: Color
 
 func set_game_name(value):
 	$LabelGame.text = value
 
 func _ready():
-	highlight.set_shader_param("color", highlightColor)
 	randomize()
 	call_deferred("get_game_image")
 	
@@ -82,12 +79,9 @@ func _on_focused():
 		if previous_sibling != null:
 			focus_neighbour_left = previous_sibling.get_path()
 	var color = theme.get_stylebox("focus", "Button").get("bg_color")
-	$FocusHightlight.color = color
-	$FocusHightlight.visible = true
 	is_active = true
-	$ButtonBanner.material = highlight
+	$HighlightLine.visible = true
 	
 func _on_unfocused():
 	is_active = false
-	$FocusHightlight.visible = false
-	$ButtonBanner.material = null
+	$HighlightLine.visible = false
