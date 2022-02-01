@@ -85,3 +85,12 @@ func _on_focused():
 func _on_unfocused():
 	is_active = false
 	$HighlightLine.visible = false
+
+func _on_ButtonBanner_mouse_entered():
+	$HighlightLine.default_color = Color(0, 0.5, 1, 1)
+	$HighlightLine.visible = true
+
+func _on_ButtonBanner_mouse_exited():
+	$HighlightLine.default_color = Color(1, 0.5, 0, 1)
+	if not is_active:
+		$HighlightLine.visible = false
