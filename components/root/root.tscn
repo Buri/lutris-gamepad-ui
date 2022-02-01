@@ -78,6 +78,7 @@ anchor_right = 1.0
 margin_left = -52.0
 margin_top = 12.0
 margin_right = -12.0
+margin_bottom = 52.0
 focus_mode = 1
 enabled_focus_mode = 1
 texture_normal = ExtResource( 6 )
@@ -98,7 +99,7 @@ __meta__ = {
 [node name="GamesTab" type="Tabs" parent="VBoxContainer/TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 38.0
+margin_top = 47.0
 script = ExtResource( 4 )
 open_in_container = NodePath("../..")
 
@@ -113,7 +114,7 @@ __meta__ = {
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/GamesTab/ScrollContainer"]
 margin_right = 1280.0
-margin_bottom = 694.0
+margin_bottom = 685.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -126,7 +127,7 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 38.0
+margin_top = 47.0
 
 [node name="Label" type="Label" parent="VBoxContainer/TabContainer/RecentTab"]
 margin_left = 3.0
@@ -142,7 +143,7 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 38.0
+margin_top = 47.0
 
 [node name="Label" type="Label" parent="VBoxContainer/TabContainer/FavoritesTab"]
 margin_left = 3.0
