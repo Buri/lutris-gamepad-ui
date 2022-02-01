@@ -64,6 +64,7 @@ margin_top = 12.0
 margin_right = 1040.0
 margin_bottom = 52.0
 rect_min_size = Vector2( 800, 40 )
+focus_mode = 1
 size_flags_horizontal = 3
 align = 1
 placeholder_text = "Search"
@@ -77,6 +78,8 @@ anchor_right = 1.0
 margin_left = -52.0
 margin_top = 12.0
 margin_right = -12.0
+focus_mode = 1
+enabled_focus_mode = 1
 texture_normal = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -152,6 +155,7 @@ __meta__ = {
 }
 
 [node name="TmpHelpPanel" type="Panel" parent="."]
+visible = false
 margin_left = 124.0
 margin_top = 2.0
 margin_right = 301.0
