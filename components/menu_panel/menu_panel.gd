@@ -1,5 +1,7 @@
 extends Control
 
+func _ready():
+	$AnimationPlayer.play("slide_animation")
 
 func _on_ButtonSettings_pressed():
 	# Close menu when opening settings.
