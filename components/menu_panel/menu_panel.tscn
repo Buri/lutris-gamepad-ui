@@ -85,4 +85,7 @@ focus_next = NodePath("../ButtonSettings")
 focus_previous = NodePath("../ButtonDesktop")
 text = "Exit"
 
+[connection signal="pressed" from="Panel/VBoxContainer/ButtonSettings" to="." method="_on_ButtonSettings_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/ButtonAbout" to="." method="_on_ButtonAbout_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/ButtonDesktop" to="." method="_on_ButtonDesktop_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/ButtonExit" to="." method="_on_ButtonExit_pressed"]
