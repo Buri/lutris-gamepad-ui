@@ -1,7 +1,18 @@
-[gd_resource type="Theme" load_steps=14 format=2]
+[gd_resource type="Theme" load_steps=15 format=2]
+
+[ext_resource path="res://resources/fonts/NotoSans-Regular.tres" type="DynamicFont" id=1]
 
 [sub_resource type="StyleBoxFlat" id=14]
-bg_color = Color( 0.827451, 0.435294, 0.0862745, 1 )
+bg_color = Color( 0.933333, 0.933333, 0.933333, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 0.533333, 0, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 0.933333, 0.933333, 0.933333, 1 )
@@ -122,6 +133,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [resource]
+default_font = ExtResource( 1 )
 Button/colors/font_color = Color( 0, 0, 0, 1 )
 Button/colors/font_color_disabled = Color( 0, 0, 0, 0.470588 )
 Button/colors/font_color_focus = Color( 0, 0, 0, 1 )

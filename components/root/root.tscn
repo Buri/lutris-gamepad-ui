@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://components/root/root.gd" type="Script" id=1]
 [ext_resource path="res://resources/theme/lutris_theme_light.tres" type="Theme" id=2]
 [ext_resource path="res://resources/img/lutris_logo.svg" type="Texture" id=3]
 [ext_resource path="res://scripts/games_panel.gd" type="Script" id=4]
+[ext_resource path="res://scripts/clock_label.gd" type="Script" id=5]
 [ext_resource path="res://resources/img/menu_button_normal_40px.png" type="Texture" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
@@ -72,12 +73,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ClockLabel" type="Label" parent="VBoxContainer/HeaderBar"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -199.0
+margin_top = 20.0
+margin_right = -79.0
+margin_bottom = 43.0
+text = "00:00:00"
+align = 2
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="MenuButton" type="TextureButton" parent="VBoxContainer/HeaderBar"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -52.0
 margin_top = 12.0
 margin_right = -12.0
+margin_bottom = 52.0
 focus_mode = 1
 enabled_focus_mode = 1
 texture_normal = ExtResource( 6 )
@@ -98,7 +114,7 @@ __meta__ = {
 [node name="GamesTab" type="Tabs" parent="VBoxContainer/TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 38.0
+margin_top = 47.0
 script = ExtResource( 4 )
 open_in_container = NodePath("../..")
 
@@ -113,7 +129,7 @@ __meta__ = {
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/GamesTab/ScrollContainer"]
 margin_right = 1280.0
-margin_bottom = 694.0
+margin_bottom = 685.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -126,7 +142,7 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 38.0
+margin_top = 47.0
 
 [node name="Label" type="Label" parent="VBoxContainer/TabContainer/RecentTab"]
 margin_left = 3.0
@@ -142,7 +158,7 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 38.0
+margin_top = 47.0
 
 [node name="Label" type="Label" parent="VBoxContainer/TabContainer/FavoritesTab"]
 margin_left = 3.0

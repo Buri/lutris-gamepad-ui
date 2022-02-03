@@ -1,7 +1,77 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://resources/theme/lutris_menu_theme_light.tres" type="Theme" id=1]
+[ext_resource path="res://components/menu_panel/shadow_gradient_material.tres" type="Material" id=2]
 [ext_resource path="res://components/menu_panel/menu_panel.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Panel:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:rect_position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:rect_position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Panel:rect_position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Panel:rect_position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "slide_animation"
+length = 0.4
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Panel:rect_position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 280, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4 )
+}
 
 [node name="MenuPanel" type="Control"]
 theme = ExtResource( 1 )
@@ -85,4 +155,19 @@ focus_next = NodePath("../ButtonSettings")
 focus_previous = NodePath("../ButtonDesktop")
 text = "Exit"
 
+[node name="ShadowRect" type="ColorRect" parent="Panel"]
+material = ExtResource( 2 )
+margin_left = -20.0
+margin_bottom = 800.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 2 )
+anims/slide_animation = SubResource( 1 )
+
+[connection signal="pressed" from="Panel/VBoxContainer/ButtonSettings" to="." method="_on_ButtonSettings_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/ButtonAbout" to="." method="_on_ButtonAbout_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/ButtonDesktop" to="." method="_on_ButtonDesktop_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/ButtonExit" to="." method="_on_ButtonExit_pressed"]
