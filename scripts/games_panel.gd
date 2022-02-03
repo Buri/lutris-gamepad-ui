@@ -15,10 +15,11 @@ export var open_in_container: NodePath
 onready var gc = $ScrollContainer/GridContainer
 
 func _ready():
-	for i in range(500):
-		var game = {"name": "Game %s" % (i)}
+	var games = LutrisInterface.get_game_list()
+	for i in games:
+		var game = games[i]
 		var item = GameButton.instance()
-		item.game_name = game.name
+		item.game_dict = game
 		item.rect_min_size = GAMEBUTTONSIZE
 		item.connect("select_game", self, "show_game_details", [game])
 		item.connect("focus_entered", self, "scroll_to_view", [item])

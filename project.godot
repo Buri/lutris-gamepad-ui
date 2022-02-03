@@ -32,6 +32,7 @@ default_clear_color=Color( 1, 1, 1, 1 )
 [autoload]
 
 UiStack="*res://scripts/behaviours/UIStack/UIStack.gd"
+LutrisInterface="*res://components/lutris_interface/lutris_interface_dummy.gd"
 
 [display]
 

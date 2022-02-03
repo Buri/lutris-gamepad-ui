@@ -4,28 +4,17 @@ signal select_game
 signal play_game
 signal select_launcher_icon
 
-var game_name: String setget set_game_name
+var game_dict: Dictionary setget set_game_dict
 var is_active := false
 var textures = {}
 
-func set_game_name(value):
-	$LabelGame.text = value
-
-func _ready():
-	randomize()
-	call_deferred("get_game_image")
+func set_game_dict(value):
+	$LabelGame.text = value.get("name")
+	call_deferred("get_game_image", value.get("banner"))
 	
-func get_game_image():
-	# TODO: Check properly if game button is visible and only then load image
-	# Alternatively, have image loading handled from outside
-	if get_index() > 20:
+func get_game_image(img_url):
+	if img_url == null:
 		return
-	# Load image
-	# https://picsum.photos/240/120
-	# https://via.placeholder.com/240x120.png
-	# Simulate 10% chance of missing image
-	var img_url = "https://picsum.photos/240/120" if rand_range(0, 100) > 10 else "https://via.placeholder.com/240x120.png" 
-	#var texture = Texture.new()
 	var request = HTTPRequest.new()
 	add_child(request)
 	request.connect("request_completed", self, "_image_loaded", [request])
