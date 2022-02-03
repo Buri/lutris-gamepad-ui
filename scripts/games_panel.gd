@@ -22,6 +22,7 @@ func _ready():
 		item.game_dict = game
 		item.rect_min_size = GAMEBUTTONSIZE
 		item.connect("select_game", self, "show_game_details", [game])
+		item.connect("play_game", self, "play_game", [game])
 		item.connect("focus_entered", self, "scroll_to_view", [item])
 		gc.add_child(item)
 	call_deferred("reset_focus")
@@ -50,6 +51,9 @@ func show_game_details(game):
 	instance.connect("action_close", self, "on_action_close", [instance])
 	get_node(open_in_container).add_child(instance)
 	UiStack.create(instance)
+
+func play_game(game):
+	LutrisInterface.start_game(game)
 
 func register_on_active():
 	if UiStack.current() != null:
