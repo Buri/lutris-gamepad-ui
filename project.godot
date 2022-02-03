@@ -10,12 +10,24 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Reference",
+"class": "LutrisGame",
+"language": "GDScript",
+"path": "res://scripts/models/LutrisGame.gd"
+}, {
+"base": "Reference",
 "class": "UIStackItem",
 "language": "GDScript",
 "path": "res://scripts/behaviours/UIStack/UIStackItem.gd"
+}, {
+"base": "Reference",
+"class": "Url",
+"language": "GDScript",
+"path": "res://scripts/UrlHelper.gd"
 } ]
 _global_script_class_icons={
-"UIStackItem": ""
+"LutrisGame": "",
+"UIStackItem": "",
+"Url": ""
 }
 
 [application]

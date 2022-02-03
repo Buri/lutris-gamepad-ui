@@ -1,12 +1,5 @@
 extends Tabs
 
-# TODO: Pull game list from lutris
-var GAMELIST = [
-	{ "name": "Game one" },
-	{ "name": "Game two" },
-	{ "name": "Game three" },
-]
-
 const GAMEBUTTONSIZE = Vector2(240, 120)
 
 var GameDetailPanel = preload("res://components/game_detail/game_detail.tscn")

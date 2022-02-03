@@ -13,8 +13,17 @@ func set_game_dict(value):
 	call_deferred("get_game_image", value.get("banner"))
 	
 func get_game_image(img_url):
+	print(img_url)
 	if img_url == null:
 		return
+
+	if Url.is_local(img_url):
+		var texture = ImageTexture.new()
+		var img = Image.new()
+		img.load(img_url)
+		texture.create_from_image(img)
+		return _apply_game_image(texture)
+
 	var request = HTTPRequest.new()
 	add_child(request)
 	request.connect("request_completed", self, "_image_loaded", [request])
@@ -27,7 +36,7 @@ func _image_loaded(result: int, _response_code: int, headers: PoolStringArray, b
 	# TODO: Handle non-existend game artwork
 	if result == OK:
 		var content_type = null
-		var texture = ImageTexture.new()	
+		var texture = ImageTexture.new()
 		for header in headers:
 			var kv = header.strip_edges().split(": ")
 			match kv[0]:
@@ -45,10 +54,13 @@ func _image_loaded(result: int, _response_code: int, headers: PoolStringArray, b
 					
 		# TODO: Process texture, eg. hover state
 		# Display game banner
-		textures['focus'] = texture
-		textures['normal'] = texture
-		$ButtonBanner.texture_normal = texture
+		_apply_game_image(texture)
 	request.queue_free()
+
+func _apply_game_image(texture: Texture):
+	textures['focus'] = texture
+	textures['normal'] = texture
+	$ButtonBanner.texture_normal = texture
 
 func grab_focus():
 	$ButtonPlay.grab_focus()
