@@ -39,7 +39,7 @@ func _on_scroll_complete():
 func show_game_details(game):
 	UiStack.close()
 	var instance = GameDetailPanel.instance()
-	instance.GAME_NAME = game.name
+	instance.game = game
 	instance.visible = false
 	instance.connect("action_close", self, "on_action_close", [instance])
 	get_node(open_in_container).add_child(instance)
