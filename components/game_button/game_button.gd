@@ -4,16 +4,29 @@ signal select_game
 signal play_game
 signal select_launcher_icon
 
-var game_dict: Dictionary setget set_game_dict
+var game_dict: LutrisGame setget set_game_dict
 var is_active := false
 var textures = {}
 
-func set_game_dict(value):
+func set_game_dict(value: LutrisGame):
+	game_dict = value
 	$LabelGame.text = value.get("name")
+	set_play_button_action(value.installState)
+	game_dict.connect("install_state_chnaged", self, "set_play_button_action")
 	call_deferred("get_game_image", value.get("banner"))
-	
+
+func set_play_button_action(state, _oldstate = null):
+	match state: 
+		LutrisGame.InstallationState.NOT_INSTALLED: 
+			$ButtonPlay.text = "Install"
+		LutrisGame.InstallationState.INSTALLING: 
+			$ButtonPlay.text = "Installing..."
+		LutrisGame.InstallationState.INSTALLED: 
+			$ButtonPlay.text = "Play"
+		LutrisGame.InstallationState.DELETING: 
+			$ButtonPlay.text = "Deleting..."
+
 func get_game_image(img_url):
-	print(img_url)
 	if img_url == null:
 		return
 
@@ -66,6 +79,10 @@ func grab_focus():
 	$ButtonPlay.grab_focus()
 
 func _on_ButtonPlay_pressed():
+	if game_dict.installState == LutrisGame.InstallationState.NOT_INSTALLED:
+		game_dict.install()
+	else:
+		game_dict.uninstall()
 	emit_signal("play_game")
 
 func _on_ButtonBanner_pressed():

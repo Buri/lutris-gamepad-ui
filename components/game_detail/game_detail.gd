@@ -1,11 +1,11 @@
 extends Control
 
-export var GAME_NAME: String = ""
+var game: LutrisGame
 
 signal action_close
 
 func _ready():
-	$HBoxContainer/Panel/Label.text = GAME_NAME
+	$HBoxContainer/Panel/Label.text = game.name
 	$HBoxContainer/Panel/Button.grab_focus()
 
 
